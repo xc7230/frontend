@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: frontend-deployment
+spec:
+ selector:
+   matchLabels:
+    type: frontend
+ replicas: 2
+ template:
+   metadata:
+     labels:
+       type: frontend
+   spec:
+    containers:
+    - name: frontend
+      image: xc7230/frontend:latest
+      envFrom:
+      ports:
+      - containerPort: 80
+      resources:
+        requests:
+          cpu: 100m
+        limits:
+          cpu: 200m
