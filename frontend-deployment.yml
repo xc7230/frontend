@@ -5,12 +5,14 @@ metadata:
 spec:
  selector:
    matchLabels:
-    type: frontend
+    type: web
+    app: frontend
  replicas: 2
  template:
    metadata:
      labels:
-       type: frontend
+       type: web
+       app: frontend
    spec:
     containers:
     - name: frontend
